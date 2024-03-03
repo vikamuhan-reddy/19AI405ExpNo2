@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: VIKAMUHAN REDDY.N</h3>
+<h3>Register Number: 212223240181</h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -54,9 +54,7 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
 
-<hr>
 <h3>Sample Input</h3>
-<hr>
 8 9 <BR>
 A B <BR>
 A C <BR>
@@ -67,29 +65,50 @@ C G <BR>
 D F <BR>
 G F <BR>
 F H <BR>
-<hr>
+A <BR>
+
 <h3>Sample Output</h3>
-<hr>
 ['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
 
-<hr>
-
-<hr>
 <h3>Sample Input</h3>
-<hr>
 5 5 <BR>
 0 1 <BR>
 0 2 <BR>
 0 3 <BR>
 2 3 <BR>
 2 4 <BR>
-<hr>
+0 <BR>
 <h3>Sample Output</h3>
-<hr>
 ['0', '1', '2', '3', '4']
 
-<hr>
-<h3>Result:</h3>
-<hr>
-<p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
+## Program
 
+```py
+
+from collections import defaultdict
+def dfs(g,s,vi,p):
+    p.append(s)
+    vi[s]=True
+    for ne in g[s]:
+        if vi[ne]==False:
+             dfs(g,ne,vi,p)
+             vi[ne]=True
+    return p
+g=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(str,input().split())
+    g[u].append(v)
+    g[v].append(u)
+st=input()
+vi=defaultdict(bool)
+p=[]
+tdp=dfs(g,st,vi,p)
+print(tdp)
+```
+## Output:
+![EXP 2 PEAS](https://github.com/vikamuhan-reddy/19AI405ExpNo2/assets/144928933/03b03033-7386-4444-8077-48e1f306a500)
+
+
+<h3>Result:</h3>
+<p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
